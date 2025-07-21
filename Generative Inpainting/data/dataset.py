@@ -21,7 +21,7 @@ class ImageInpaintingDataset(Dataset):
         image = Image.open(img_path).convert("RGB")
         image = self.transform(image)
 
-        # Dummy mask: everything darker than 0.5 becomes masked
+      
         mask = (image.mean(dim=0, keepdim=True) < 0.5).float()
         masked_image = image * (1 - mask)
 
