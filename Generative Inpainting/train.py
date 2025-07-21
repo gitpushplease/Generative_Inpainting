@@ -5,18 +5,18 @@ from utils.losses import (
 )
 import torch.nn as nn
 
-# Add L1 loss and hyperparameters
+
 l1_loss = nn.L1Loss()
-alpha = 100  # L1 loss weight
-lambda_gp = 10  # gradient penalty
-n_critic = 5     # discriminator steps per generator step
+alpha = 100  
+lambda_gp = 10  
+n_critic = 5     
 
 for epoch in range(epochs):
     for i, (input_tensor, real_img) in enumerate(dataloader):
         input_tensor = input_tensor.to(device)
         real_img = real_img.to(device)
 
-        # === Train Discriminator ===
+       
         for _ in range(n_critic):
             fake_img = G(input_tensor)
             d_real = D(real_img)
@@ -30,7 +30,7 @@ for epoch in range(epochs):
             loss_d_total.backward()
             optimizer_D.step()
 
-        # === Train Generator ===
+        
         fake_img = G(input_tensor)
         d_fake = D(fake_img)
 
