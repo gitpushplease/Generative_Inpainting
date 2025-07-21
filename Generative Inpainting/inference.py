@@ -3,7 +3,7 @@ from torchvision import transforms
 from PIL import Image
 import os
 
-from models.generator import AOTGenerator as Generator  # ✅ FIXED
+from models.generator import AOTGenerator as Generator  
 from utils.image_utils import save_tensor_image
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
